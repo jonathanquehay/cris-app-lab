@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorio Bioanalisis FAREM Ch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="container">
+
+
+
+    <div class="row">
+        <div class="input-field col s12 l4">
+            <!-- <input type="text" id="fecha" class="validate"> -->
+            <input type="date" id="fecha" value="2023-01-01" min="2023-01-01" max="2030-12-31">
+            <!-- <label for="first_name">Fecha de la actividad</label> -->
+        </div>
+        <div class="input-field col s12 l4">
+            <input type="time" id="inicio" class="validate">
+        </div>
+        <div class="input-field col s12 l4">
+            <input type="time" id="fin" class="validate">
+        </div>
+        <div class="input-field col s12">
+            <input type="text" id="nombre" class="validate">
+            <label for="last_name">Docente</label>
+        </div>
+
+        <div class="input-field col s12">
+            <input type="number" id="cantidad" class="validate">
+            <label for="last_name">Cantidad alumnos</label>
+        </div>
+        <div class="input-field col s12">
+            <input type="text" id="descripcion" class="validate">
+            <label for="last_name">Descripción</label>
+        </div>
+        <div class="input-field col s12">
+            <input type="text" id="materiales" class="validate">
+            <label for="last_name">Materiales</label>
+        </div>
+
+
+    </div>
+    <a class="waves-effect waves-light blue btn-large" id="guardar"><i
+            class="material-icons right">archive</i>GUARDAR</a>
+    <br><br>
+
+    <!-- Ver los registros -->
+    <h3 class="center">Registros de la actividad</h3>
+    <hr>
+    <div class="input-field col s12 l6">
+        <input type="text" id="busqueda" class="validate">
+        <label for="first_name">Buscar</label>
+    </div>
+    <table class="responsive-table centered highlight">
+        <thead>
+            <tr>
+                <!-- <th data-field="id">ID</th> -->
+                <th data-field="f">Fecha</th>
+                <th data-field="n">Docente</th>
+                <th data-field="hi">Hora de inicio</th>
+                <th data-field="hf">Hora que finaliza</th>
+                <th data-field="ca">Cantidad alumnos</th>
+                <th data-field="or">Descripción</th>
+                <th data-field="l">Materiales</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody id="tabla">
+
+        </tbody>
+    </table>
+
+    <!-- FORMULARIO MODAL PARA EDITAR -->
+
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Editar los datos</h4>
+            <p>
+                <input type="text" id="mfecha" class="validate">
+                <input type="text" id="mnombre" class="validate">
+                <input type="text" id="minicio" class="validate">
+                <input type="text" id="mfin" class="validate">
+                <input type="text" id="cant" class="validate">
+                <input type="text" id="desc" class="validate">
+                <input type="text" id="mat" class="validate">
+            </p>
+        </div>
+        <div class="modal-footer align-center">
+            <button id="editar" class="align-center btn-flat waves-effect waves-light modal-action modal-close">Guardar
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Firestore -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/moment.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+
+        });
+    </script>
+</body>
+
+</html>
